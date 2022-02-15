@@ -58,7 +58,7 @@ public class ControllerServlet extends HttpServlet {
     }
 
     private void searchByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nameSearch = request.getParameter("nameSearch");
+        String nameSearch = "%" + request.getParameter("nameSearch") + "%";
         ArrayList<ProductCategory> productCategories = productDAO.findProductByName(nameSearch);
         request.setAttribute("productCategories",productCategories);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("home.jsp");

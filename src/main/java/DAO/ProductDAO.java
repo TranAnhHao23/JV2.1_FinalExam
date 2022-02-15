@@ -18,7 +18,7 @@ public class ProductDAO {
     private static final String DELETE_PRODUCT_BY_ID = "delete from product where id_product = ?";
     private static final String GET_PRODUCT_BY_ID = "select * from product where id_product = ?;";
     private static final String UPDATE_PRODUCT_BY_ID = "UPDATE product SET product_name = ?, price = ?, quantity = ?, color = ?, description = ?, id_category = ? WHERE (id_product = ?);";
-    private static final String FIND_PRODUCT_BY_NAME = "select * from product where product_name like '%'?'%';";
+    private static final String FIND_PRODUCT_BY_NAME = "select * from product inner join category on product.id_category = category.id_category where product_name like ?;";
 
     public ArrayList<ProductCategory> findProductByName(String nameSearch){
         ArrayList<ProductCategory> productCategories = new ArrayList<>();
